@@ -28,7 +28,7 @@ pipeline {
 			python --version
 			export PYTHONPATH=\$PYTHONPATH:\$PWD
 			cd src
-			py.test oper.py --junitxml tests.xml
+			py.test test.py --junitxml tests.xml
 		    '''
 		}
 	}
@@ -42,7 +42,7 @@ pipeline {
   post {
     always {
         junit '**/tests.xml'
-        //cleanWs()
+        cleanWs()
     }
   }
 }
